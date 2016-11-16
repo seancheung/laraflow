@@ -20,13 +20,4 @@ class Track extends GitCommand
      */
     protected $description = '';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        //
-    }
 }

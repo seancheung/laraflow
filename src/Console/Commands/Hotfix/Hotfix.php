@@ -20,13 +20,4 @@ class Hotfix extends GitCommand
      */
     protected $description = 'List all hotfix branches';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        //
-    }
 }

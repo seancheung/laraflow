@@ -20,13 +20,4 @@ class Release extends GitCommand
      */
     protected $description = 'List all release branches';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        //
-    }
 }

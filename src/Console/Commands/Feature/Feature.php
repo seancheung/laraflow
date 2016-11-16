@@ -20,13 +20,4 @@ class Feature extends GitCommand
      */
     protected $description = 'List all feature branches';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        //
-    }
 }

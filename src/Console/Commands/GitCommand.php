@@ -19,7 +19,7 @@ abstract class GitCommand extends Command
      *
      * @var string
      */
-    protected $workTree;
+    protected $path;
 
     /**
      * Create a new command instance.
@@ -30,16 +30,33 @@ abstract class GitCommand extends Command
     {
         parent::__construct();
 
-        $this->workTree = base_path();
+        $this->path = base_path();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $commands = $this->getCommands();
+        if(!empty($commands)) {
+            foreach ($commands as $key=>$command) {
+                if($this->exec($command) != 0) {
+                    break;
+                }
+            }
+        }
     }
 
     /**
      * Execute the command.
      *
      * @param mixed $command
-     * @return void
+     * @return null|int The exit status code, null if the Process is not terminated
      */
-    protected function run($command)
+    protected function exec($command)
     {
         $process;
 
@@ -57,5 +74,17 @@ abstract class GitCommand extends Command
                 $this->info($buffer);
             }
         });
+
+        return $process->getExitCode();
+    }
+
+    /**
+     * Get the commands to execute.
+     *
+     * @return array
+     */
+    protected function getCommands()
+    {
+        return [];
     }
 }

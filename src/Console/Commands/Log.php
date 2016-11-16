@@ -19,12 +19,15 @@ class Log extends GitCommand
     protected $description = 'Show log deviating from base branch.';
 
     /**
-     * Execute the console command.
+     * Get the commands to execute.
      *
-     * @return mixed
+     * @return array
      */
-    public function handle()
+    protected function getCommands()
     {
-        //
+        return [
+            "{$this->git} --work-tree={$this->path} log"
+        ];
     }
+
 }

@@ -3,6 +3,7 @@
 namespace Panoscape\Laraflow;
 
 use Illuminate\Support\ServiceProvider;
+use Panoscape\Laraflow\Console\Commands;
 
 class LaraflowServiceProvider extends ServiceProvider
 {
@@ -19,7 +20,7 @@ class LaraflowServiceProvider extends ServiceProvider
 
         if($this->app->runningInConsole()) {
             $this->commands([
-
+                Commands\Log::class,
             ]);
         }
     }
